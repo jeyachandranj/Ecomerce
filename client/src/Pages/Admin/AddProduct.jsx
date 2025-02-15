@@ -32,7 +32,7 @@ const AddProduct = () => {
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/products", {
+      const response = await fetch("https://ecomerce-4s0t.onrender.com/api/products", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

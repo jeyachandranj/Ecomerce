@@ -21,7 +21,7 @@ app.use('/api/login', loginRouter);
 
 
 const PORT = 5000;
-const MONGO_URI ='mongodb://localhost:27017/booksdb';
+const MONGO_URI ='mongodb+srv://jeyachandranj:jj.jeyan@cluster0.pe8ib.mongodb.net/booksdb';
 
 mongoose
     .connect(MONGO_URI)

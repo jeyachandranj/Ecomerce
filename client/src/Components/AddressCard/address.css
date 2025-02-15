@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;1,300&display=swap');
+
+.addressContainer{
+    display: flex;
+    flex-direction: column;
+    width: 80vh;
+    height: 23vh;
+    margin-top: 5vh;
+    border-radius: 7px;
+    border: 1px solid #ddd;
+}
+
+.addressTitle{
+    font-family: "Work Sans";
+    font-weight: 900;
+    margin-left: 5vh;
+    margin-top: 3vh;
+}
+
+.addressName{
+    font-family: "Work Sans";
+    font-weight: 900;
+    margin-left: 5vh;
+    margin-top: 2vh;
+}
+
+.addressDesc{
+    font-family: "Work Sans";
+    font-weight: 900;
+    margin-left: 5vh;
+    margin-top: 1vh;
+    color: #b0aeae;
+}
+
+.changeBtn{
+    width: 20vh;
+    margin-top: 2vh;
+    margin-left: 60vh;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    color: #2550A9;
+}
+

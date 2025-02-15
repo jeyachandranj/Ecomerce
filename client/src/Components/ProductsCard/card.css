@@ -1,0 +1,59 @@
+
+.cardContainer{
+    display: flex;
+    flex-direction: column;
+    width: 37vh;
+    height: 55vh;
+    border: 1px solid rgb(198, 198, 198);
+    border-radius: 10px;
+}
+
+.cardImage{
+    width: 37vh;
+    height: 27vh;
+}
+
+.cardBody{
+    width: 37vh;
+    height: 21vh;
+    color: #3D63B3;
+    background-color: white;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.prodCardTitle{
+    height: fit-content;
+    margin-top: 15px;
+    margin-left: 10px;
+}
+
+.prodCardPrice{
+    margin-top: 15px;
+    margin-left: 10px;
+    color: rgb(171, 158, 158);
+}
+
+.buyContainer{
+    display: flex;
+    margin-top: 2vh;
+    justify-content: center;
+}
+
+.addCart{
+    display: flex;
+    width: 7vh;
+    height: 6vh;
+    margin-left: 10px;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+}
+.cartIcon{
+    height: 20px;
+    width: 20px;
+}
+
+.prodCardImage{
+    width: 37vh;
+    height: 27vh;
+}

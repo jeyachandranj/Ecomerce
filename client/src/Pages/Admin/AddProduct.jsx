@@ -32,7 +32,7 @@ const AddProduct = () => {
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch("https://ecomerce-4s0t.onrender.com/api/products", {
+      const response = await fetch("http://localhost:5000/api/products", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -104,17 +104,23 @@ const AddProduct = () => {
   
             <h1 className="text-white text-xl ml-3">Category</h1>
             <select
-              name="category"
-              value={formData.category}
-              onChange={handleChange}
-              className="w-96 m-4 p-2 border border-gray-500 rounded-md bg-zinc-700 outline-none text-gray-200"
-            >
-              <option value="" disabled>Select a category</option>
-              <option value="Fictional">Fictional</option>
-              <option value="Novel">Novel</option>
-              <option value="Scientific">Scientific</option>
-              <option value="Education">Education</option>
-            </select>
+  name="category"
+  value={formData.category}
+  onChange={handleChange}
+  className="w-96 m-4 p-2 border border-gray-500 rounded-md bg-zinc-700 outline-none text-gray-200"
+>
+  <option value="" disabled>Select a category</option>
+  <option value="Fictional">Fictional</option>
+  <option value="Novel">Novel</option>
+  <option value="Scientific">Scientific</option>
+  <option value="Education">Education</option>
+  <option value="Biography">Biography</option>
+  <option value="History">History</option>
+  <option value="Fantasy">Fantasy</option>
+  <option value="Mystery">Mystery</option>
+  <option value="Self-Help">Self-Help</option>
+</select>
+
   
             <h1 className="text-white text-xl ml-3">Upload Image</h1>
             <input

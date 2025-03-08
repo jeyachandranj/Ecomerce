@@ -23,7 +23,7 @@ const Cart = () => {
           return;
         }
 
-        const response = await fetch(`https://ecomerce-4s0t.onrender.com/api/cart/${cleanedEmail}`, {
+        const response = await fetch(`http://localhost:5000/api/cart/${cleanedEmail}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -55,6 +55,12 @@ const Cart = () => {
   }, [navigate]);
 
   const updateTotalPrice = (title, newCount) => {
+    // If count is 0, remove the item
+    if (newCount === 0) {
+      removeCartItem(title);
+      return;
+    }
+    
     const updatedCart = cart.map((item) =>
       item.BookTitle === title
         ? { ...item, count: newCount, updatedPrice: item.Price * newCount }
@@ -67,6 +73,48 @@ const Cart = () => {
       0
     );
     setTotal(newTotal);
+  };
+  
+  const removeCartItem = async (title) => {
+    try {
+      // Find the item to get its ID
+      const itemToRemove = cart.find(item => item.BookTitle === title);
+      
+      if (!itemToRemove || !itemToRemove._id) {
+        setError("Cannot remove item: Item ID not found");
+        return;
+      }
+      
+      const response = await fetch(`http://localhost:5000/api/cart/remove/${itemToRemove._id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*"
+        },
+      });
+
+      if (response.ok) {
+        // Remove the item from the local cart state
+        const updatedCart = cart.filter(item => item.BookTitle !== title);
+        setCart(updatedCart);
+        
+        // Update the total
+        const newTotal = updatedCart.reduce(
+          (total, item) => total + (item.updatedPrice || item.Price * (item.count || 1)),
+          0
+        );
+        setTotal(newTotal);
+        
+        // Show success message
+        setError(""); // Clear any previous errors
+      } else {
+        const errorData = await response.json();
+        setError(errorData.message || "Failed to remove item from cart");
+      }
+    } catch (error) {
+      setError("An error occurred while removing the item");
+      console.error(error);
+    }
   };
   
   const calculateTotal = () => {
@@ -116,6 +164,10 @@ const Cart = () => {
     if (cart.length > 0) {
       localStorage.setItem("cart", JSON.stringify(cart));
       localStorage.setItem("book", cart[0]?.BookTitle || "");
+    } else {
+      // Clear cart data from localStorage if cart is empty
+      localStorage.removeItem("cart");
+      localStorage.removeItem("book");
     }
   }, [cart]);
 
@@ -156,6 +208,7 @@ const Cart = () => {
                     Price={item.Price}
                     initialCount={item.count || 1}
                     onQuantityChange={updateTotalPrice}
+                    onRemove={() => removeCartItem(item.BookTitle)}
                   />
                 ))
               ) : (

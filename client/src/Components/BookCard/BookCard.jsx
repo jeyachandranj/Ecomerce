@@ -39,7 +39,7 @@ const BookCard = ({
     };
 
     try {
-      const response = await fetch("https://ecomerce-4s0t.onrender.com/api/cart/add", {
+      const response = await fetch("http://localhost:5000/api/cart/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

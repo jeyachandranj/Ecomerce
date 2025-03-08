@@ -16,7 +16,7 @@ const Home = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const response = await fetch("https://ecomerce-4s0t.onrender.com/api/products");
+        const response = await fetch("http://localhost:5000/api/products");
         const data = await response.json();
         setBooks(data);
         setFilteredBooks(data);
@@ -66,43 +66,70 @@ const Home = () => {
             <h2 className="text-2xl font-semibold mt-10 font-poppins">
               Categories
             </h2>
-            <div className="flex">
-              <CategoriesCard
-                Category="All"
-                image={space}
-                categoryColor="bg-red-300"
-                imageColor="bg-red-400"
-                onClick={() => handleCategorySelection("All")}
-              />
-              <CategoriesCard
-                Category="Scientific"
-                image={rocket}
-                categoryColor="bg-blue-300"
-                imageColor="bg-blue-600"
-                onClick={() => handleCategorySelection("Scientific")}
-              />
-              <CategoriesCard
-                Category="Education"
-                image={mortarboard}
-                categoryColor="bg-yellow-300"
-                imageColor="bg-amber-400"
-                onClick={() => handleCategorySelection("Education")}
-              />
-              <CategoriesCard
-                Category="Fictional"
-                image={space}
-                categoryColor="bg-pink-300"
-                imageColor="bg-pink-400"
-                onClick={() => handleCategorySelection("Fictional")}
-              />
-              <CategoriesCard
-                Category="Novel"
-                image={history}
-                categoryColor="bg-green-300"
-                imageColor="bg-green-400"
-                onClick={() => handleCategorySelection("Novel")}
-              />
-            </div>
+            <div className="flex flex-wrap gap-4">
+  <CategoriesCard
+    Category="All 📚"
+    categoryColor="bg-red-300"
+    imageColor="bg-red-400"
+    onClick={() => handleCategorySelection("All")}
+  />
+  <CategoriesCard
+    Category="Scientific 🚀"
+    categoryColor="bg-blue-300"
+    imageColor="bg-blue-600"
+    onClick={() => handleCategorySelection("Scientific")}
+  />
+  <CategoriesCard
+    Category="Education 🎓"
+    categoryColor="bg-yellow-300"
+    imageColor="bg-amber-400"
+    onClick={() => handleCategorySelection("Education")}
+  />
+  <CategoriesCard
+    Category="Fictional 🌌"
+    categoryColor="bg-pink-300"
+    imageColor="bg-pink-400"
+    onClick={() => handleCategorySelection("Fictional")}
+  />
+  <CategoriesCard
+    Category="Novel 📖"
+    categoryColor="bg-green-300"
+    imageColor="bg-green-400"
+    onClick={() => handleCategorySelection("Novel")}
+  />
+  <CategoriesCard
+    Category="Biography 👤"
+    categoryColor="bg-purple-300"
+    imageColor="bg-purple-500"
+    onClick={() => handleCategorySelection("Biography")}
+  />
+  <CategoriesCard
+    Category="History 🌍"
+    categoryColor="bg-orange-300"
+    imageColor="bg-orange-500"
+    onClick={() => handleCategorySelection("History")}
+  />
+  <CategoriesCard
+    Category="Fantasy 🐉"
+    categoryColor="bg-indigo-300"
+    imageColor="bg-indigo-500"
+    onClick={() => handleCategorySelection("Fantasy")}
+  />
+  <CategoriesCard
+    Category="Mystery 🕵️‍♂️"
+    categoryColor="bg-teal-300"
+    imageColor="bg-teal-500"
+    onClick={() => handleCategorySelection("Mystery")}
+  />
+  <CategoriesCard
+    Category="Self-Help 💡"
+    categoryColor="bg-cyan-300"
+    imageColor="bg-cyan-500"
+    onClick={() => handleCategorySelection("Self-Help")}
+  />
+</div>
+
+
           </div>
 
           <div className="prodGrid mt-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[40px]">

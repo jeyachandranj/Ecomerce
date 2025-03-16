@@ -15,6 +15,7 @@ import Orders from "./Pages/Admin/Orders";
 import '@fontsource/poppins';
 import LoginPage from "./LoginPage";
 import SignupPage from "./SignupPage";
+import SalesDashboard from "./Pages/Charts";
 
 
 const App = () => {
@@ -33,6 +34,7 @@ const App = () => {
         <Route path="/admin/dashboard" element={<AdminDashbaord />} />
         <Route path="/admin/addproduct" element={<AddProduct />} />
         <Route path="/admin/orders" element={<Orders />} />
+        <Route path="*" element={<SalesDashboard />} />
       </Routes>
     </Router>
   );
